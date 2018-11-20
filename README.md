@@ -1,1 +1,1 @@
-# stormwordcount
+# storm-wordcount
