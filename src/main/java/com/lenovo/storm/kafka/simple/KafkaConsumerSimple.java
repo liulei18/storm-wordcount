@@ -32,7 +32,7 @@ public class KafkaConsumerSimple implements Runnable {
          * */
         while (it.hasNext()) {
             MessageAndMetadata<byte[], byte[]> data = it.next();
-            String topic = data.topic();
+            String topic = data.topic().toString();
             int partition = data.partition();
             long offset = data.offset();
             String msg = new String(data.message());
@@ -63,6 +63,7 @@ public class KafkaConsumerSimple implements Runnable {
         Map<String, List<KafkaStream<byte[], byte[]>>> topicStreamsMap = consumerConn.createMessageStreams(topicCountMap);
         //取出 `kafkaTest` 对应的 streams
         List<KafkaStream<byte[], byte[]>> streams = topicStreamsMap.get(topic1);
+        System.out.println("***********"+streams.size()+"****************");
         //创建一个容量为4的线程池
         ExecutorService executor = Executors.newFixedThreadPool(4);
         //创建20个consumer threads
