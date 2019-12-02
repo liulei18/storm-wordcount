@@ -31,6 +31,6 @@ public class MyCountBolt extends BaseRichBolt {
     }
 
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        //不輸出
+        //不输出
     }
 }
